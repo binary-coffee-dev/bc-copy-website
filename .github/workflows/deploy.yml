@@ -7,15 +7,14 @@ on: [ push, pull_request ]
 
 jobs:
 
-  deploy-prod:
+  deploy:
 
-    needs: [ update-version ]
     if: github.ref == 'refs/heads/master'
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Copy project to the hosting
         uses: easingthemes/ssh-deploy@v2.1.5
